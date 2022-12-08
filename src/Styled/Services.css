@@ -1,0 +1,14 @@
+.IMGDOG1{
+    max-width: 100%;
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;  
+    width: 18rem;
+    margin-top: 20px;
+}
+.card{
+    align-items: center;
+    margin-top: 20px;
+}
+
