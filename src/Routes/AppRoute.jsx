@@ -8,6 +8,8 @@ import PerritoVenta from "../Page/PerritoVenta";
 import ListaPerrito from "../Page/ListaPerrito";
 import Video from "../Page/Video";
 import ListaPerrito2 from "../Page/ListaPerrito2";
+import table1 from "../Page/Table1";
+import Table1 from "../Page/Table1";
 
 
   
@@ -25,6 +27,7 @@ import ListaPerrito2 from "../Page/ListaPerrito2";
           <Route path="PerritoVenta" element={<PerritoVenta/>}/>
           <Route path="ListaPerrito" element={<ListaPerrito/>}/>
           <Route path="ListaPerrito2" element={<ListaPerrito2 />}/>
+          <Route path="Table1" element={<Table1 />}/>
           <Route path="/" element={<Navigate to="/Video" />} />
         </Route>
       </Routes>

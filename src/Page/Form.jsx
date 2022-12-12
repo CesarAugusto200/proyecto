@@ -1,37 +1,86 @@
 import React  from "react";
 import "../Styled/Formulario.css"
 import {Formik} from "formik"
+import { useState } from "react";
 
 function formulario(){
+
+
+  const [nombre, setNombre] = useState("")
+  const [producto, setProducto] = useState("")
+  const [cantidad, setCantidad] = useState(0)
+  const [servicio, setServicios] = useState("")
+
+  const handleSubmit=(event)=>{ 
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    
+    var raw = JSON.stringify({
+      "name":  nombre,
+      "product": producto,
+      "quantityOfProducts": cantidad,
+      "typeOfService": servicio
+    });
+    
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+    };
+    
+    fetch("http://localhost:8080/client", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+
+  }
+
+
+
+
+
+ 
+
+
 
         return(
             <Formik>
 
                
 
-            <form className="formulario" >
+            <form onSubmit={handleSubmit()} className="formulario" >
+
+
+
+              
             <div>
             <label htmlFor="nombre">Nombre del Cliente</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Nombre"/>    
+            
+            <input    name="nombre"  id="nombre" placeholder="Nombre"  onChange={e => setName(e.target.value)} />
             </div>
 
 
             <div>
             <label htmlFor="producto">Productos Seleccionados</label>
-            <input type="text" id="producto" name="producto" placeholder="Producto"/>    
+             
+            <input   name="productos"  id="producto" placeholder="Producto" onChange={e => setName(e.target.value)} />
             </div>
 
 
 
             <div>
             <label htmlFor="cantidad">Cantidad de productos seleccionados</label>
-            <input type="text" id="cantidad" name="cantidad" placeholder="Cantidad"/>    
+            
+            <input   name="cantidad"   id="cantidad" placeholder="Cantidad"  onChange={e => setName(e.target.value)} />  
             </div>
 
             
             <div>
             <label htmlFor="servicios">Tipo de servicio seleccionado</label>
-            <input type="text" id="servicios" name="servicios" placeholder="Tipo de servicios"/>    
+             
+            <input   name="servicios"    id="servicio" placeholder="Tipo de servicios"  onChange={e => setName(e.target.value)} /> 
             </div>
 
 

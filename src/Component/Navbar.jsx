@@ -51,6 +51,15 @@ export const Navbar = () => {
                     >
                         Lista de Perritos
                     </NavLink>
+
+
+                    <NavLink 
+                        className="nav-item nav-link" 
+                        to="/Table1"
+                    >
+                        Registro de pedidos
+                    </NavLink>
+             
              
                 </div>
             </div>
